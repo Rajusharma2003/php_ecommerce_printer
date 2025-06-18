@@ -4,7 +4,7 @@
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6 ">
                     <h5>About Us</h5>
-                    <p class="text-muted">Your trusted online shopping destination for quality products and excellent service.</p>
+                    <p class="text-muted">Trusted supplier of quality printer spare parts with fast service and customer-first support.</p>
                     <div class="social-links">
                         <a href="#" class="text-dark me-2"><i class='bx bxl-facebook'></i></a>
                         <a href="#" class="text-dark me-2"><i class='bx bxl-twitter'></i></a>
@@ -51,7 +51,6 @@
             </div>
         </div>
     </footer>
-
     <style>
         /* Existing styles */
         
@@ -99,6 +98,6 @@
             transition: color 0.2s;
         }
         footer .list-unstyled a:hover {
-            color: #fff !important;
+            color: #000000 !important;
         }
     </style>

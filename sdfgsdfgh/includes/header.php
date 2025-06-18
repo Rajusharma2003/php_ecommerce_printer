@@ -1,4 +1,3 @@
-  <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">
@@ -108,7 +107,7 @@
                         <a href="register.php" class="btn btn-primary">
                             <i class='bx bxs-user-plus'></i> Register
                         </a>
-                        <a href="cart.php" class="btn btn-outline-primary position-relative">
+                        <!-- <a href="cart.php" class="btn btn-outline-primary position-relative">
                             <i class='bx bxs-cart'></i> Cart
                             <?php
                             // Get cart count
@@ -122,7 +121,7 @@
                                 <?php echo $cart_count; ?>
                             </span>
                             <?php endif; ?>
-                        </a>
+                        </a> -->
                     <?php endif; ?>
                 </div>
             </div>

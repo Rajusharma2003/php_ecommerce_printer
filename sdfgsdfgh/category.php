@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 require_once 'includes/db.php';
 require_once 'includes/functions.php';
@@ -60,61 +61,11 @@ $products = $stmt->get_result();
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">ShopNow</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="shop.php">Shop</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="categories.php">Categories</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Browse Categories
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                            <?php
-                            // Get all active categories
-                            $sql = "SELECT * FROM categories WHERE status = 'active' ORDER BY name ASC";
-                            $categories = $conn->query($sql);
-                            
-                            if ($categories && $categories->num_rows > 0) {
-                                while($cat = $categories->fetch_assoc()) {
-                                    echo '<li><a class="dropdown-item' . ($cat['category_id'] == $category_id ? ' active' : '') . '" href="category.php?id=' . $cat['category_id'] . '">' . 
-                                         htmlspecialchars($cat['name']) . '</a></li>';
-                                }
-                            }
-                            ?>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="categories.php">View All Categories</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <a href="cart.php" class="btn btn-outline-primary me-2">
-                        <i class='bx bxs-cart'></i> Cart
-                    </a>
-                    <?php if(isset($_SESSION['user_id'])): ?>
-                        <a href="profile.php" class="btn btn-primary">My Account</a>
-                    <?php else: ?>
-                        <a href="login.php" class="btn btn-primary">Login</a>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include 'includes/header.php'; ?>
+
 
     <!-- Category Banner -->
+    <?php if ($category): ?>
     <div class="category-banner">
         <div class="container text-center">
             <h1 class="display-4 mb-3"><?php echo htmlspecialchars($category['name']); ?></h1>
@@ -123,6 +74,12 @@ $products = $stmt->get_result();
             <?php endif; ?>
         </div>
     </div>
+    <?php else: ?>
+        <div class="container text-center">
+            <h1 class="display-4 mb-3">Category Not Found</h1>
+            <p class="lead">The category you are looking for does not exist or is inactive.</p>
+        </div>
+    <?php endif; ?>
 
     <!-- Products Grid -->
     <div class="container mb-5">
@@ -156,6 +113,7 @@ $products = $stmt->get_result();
         </div>
     </div>
 
+    <?php include 'includes/footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html> 
+</html>

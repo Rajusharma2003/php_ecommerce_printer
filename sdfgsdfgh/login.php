@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                         <div class="text-center mt-3">
                             <p>Don't have an account? <a href="register.php">Register here</a></p>
-                            <p><a href="forgot-password.php">Forgot your password?</a></p>
+                            <!-- <p><a href="forgot-password.php">Forgot your password?</a></p> -->
                         </div>
                     </div>
                 </div>

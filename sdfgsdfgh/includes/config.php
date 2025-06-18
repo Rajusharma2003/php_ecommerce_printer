@@ -154,7 +154,7 @@ function generate_pagination($total_items, $items_per_page, $current_page, $url_
     if ($current_page > 1) {
         $pagination .= '<li class="page-item"><a class="page-link" href="' . sprintf($url_pattern, $current_page - 1) . '">Previous</a></li>';
     }
-
+   
     // Page numbers
     for ($i = 1; $i <= $total_pages; $i++) {
         if ($i == $current_page) {

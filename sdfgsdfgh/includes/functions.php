@@ -410,4 +410,3 @@ function log_activity($user_id, $action, $details = '') {
         return false;
     }
 }
-?> 
